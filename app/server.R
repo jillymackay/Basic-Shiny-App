@@ -7,12 +7,14 @@ library(tidyverse)
 
 
 
-shinyServer(func(input, output, session)) {
+shinyServer(function(input, output, session) {
   
-  # --------------- Creating things -------
+  # --------------- Returning outputs -------
   
  
-  output$rand_name <- renderText(input$name1)
+  output$rand_name <- renderText ({
+    input$rand_name_in
+  })
   
   
   
@@ -21,9 +23,7 @@ shinyServer(func(input, output, session)) {
   
   output$plot1 <- renderPlot({
     
-  mpg %>% 
-      ggplot(aes(x = as.factor(cyl), y = hwy)) +
-      geom_boxplot()
+    ppp()
   }
   )
   
@@ -38,4 +38,4 @@ shinyServer(func(input, output, session)) {
       ggplot(aes(x = cty, y = hwy)) +
       geom_point()
   })
-}
+})
