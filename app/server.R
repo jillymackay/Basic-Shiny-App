@@ -9,24 +9,21 @@ library(tidyverse)
 
 shinyServer(function(input, output, session) {
   
-
-   
+  # --------------- Returning outputs -------
   
-  # ---------- Returning  outputs
-   
-   output$rand_name <- renderText ({
-     input$rand_name_in
-   })
   
-
+  output$rand_name <- renderText ({
+    input$rand_name_in
+  })
+  
+  
+  
   # ---------- Plots
   
   
   output$plot1 <- renderPlot({
     
-  mpg %>% 
-      ggplot(aes(x = as.factor(cyl), y = hwy)) +
-      geom_boxplot()
+    ppp()
   }
   )
   
